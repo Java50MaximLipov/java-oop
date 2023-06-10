@@ -46,4 +46,38 @@ public class ArraysTest {
 		Arrays.sort(array, new DigitsSumComparator());
 		assertArrayEquals(expected, array);
 	}
+
+// ######  HW-05  ######
+	@Test
+	void bubbleSortComparatorTest() {
+		Integer[] arrayEvenOdd1 = { 10, 5, -5, 100, 200 };
+		Integer[] expectedEvenOdd1 = { 10, 100, 200, 5, -5 };
+		bubbleSort(arrayEvenOdd1, new EvenOddComparator());
+		assertArrayEquals(expectedEvenOdd1, arrayEvenOdd1);
+
+		Integer[] arrayEvenOdd2 = { 7, 5, 4, 2, 1, 0, -6, -13 };
+		Integer[] expectedEvenOdd2 = { -6, 0, 2, 4, 7, 5, 1, -13 };
+		bubbleSort(arrayEvenOdd2, new EvenOddComparator());
+		assertArrayEquals(expectedEvenOdd2, arrayEvenOdd2);
+
+		Integer[] arrayMinMax1 = { 55, 0, -500, 42, 3 };
+		Integer[] expectedMinMax1 = { -500, 0, 3, 42, 55 };
+		bubbleSort(arrayMinMax1, new MinMaxIntegerComaparator());
+		assertArrayEquals(expectedMinMax1, arrayMinMax1);
+
+		Integer[] arrayMinMax2 = { 10, 5, -5, 100, 200 };
+		Integer[] expectedMinMax2 = { -5, 5, 10, 100, 200 };
+		bubbleSort(arrayMinMax2, new MinMaxIntegerComaparator());
+		assertArrayEquals(expectedMinMax2, arrayMinMax2);
+	}
+
+	@Test
+	void minMaxIntegerComparator() {
+		Comparator<Integer> comp = new MinMaxIntegerComaparator();
+		assertTrue(comp.compare(1, 2) < 0);
+		assertTrue(comp.compare(2, 1) > 0);
+		assertTrue(comp.compare(2, 2) == 0);
+		assertTrue(comp.compare(-2, 1) < 0);
+	}
+
 }

@@ -4,6 +4,8 @@ import static java.util.Arrays.*;
 
 import java.util.Comparator;
 
+import telran.util.tests.MinMaxIntegerComaparator;
+
 public class Arrays {
 	public static <T> T[] addObject(T[] array, T obj) {
 		T[] res = copyOf(array, array.length + 1);
@@ -20,6 +22,7 @@ public class Arrays {
 
 	}
 
+// ######  HW-05  ######
 	public static <T> void bubbleSort(T[] array, Comparator<T> comp) {
 		boolean flSorted = false;
 		int length = array.length;
@@ -27,7 +30,10 @@ public class Arrays {
 			flSorted = true;
 			length--;
 			for (int i = 0; i < length; i++) {
-				// TODO
+				if (comp.compare(array[i], array[i + 1]) > 0) {
+					swap(array, i, i + 1);
+					flSorted = false;
+				}
 			}
 		} while (!flSorted);
 	}
