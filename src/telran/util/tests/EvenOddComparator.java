@@ -16,5 +16,4 @@ public class EvenOddComparator implements Comparator<Integer> {
 		}
 		return res;
 	}
-
 }

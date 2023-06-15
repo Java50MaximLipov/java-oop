@@ -54,6 +54,5 @@ public class ArraysTest {
 		bubbleSort(array, new EvenOddComparator());
 		System.out.println(Arrays.toString(array));
 		assertArrayEquals(expected, array);
-
 	}
 }

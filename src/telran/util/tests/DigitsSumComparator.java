@@ -17,8 +17,8 @@ public class DigitsSumComparator implements Comparator<Integer> {
 			digit = Math.abs(number % 10);
 			sum += digit;
 			number /= 10;
+
 		} while (number != 0);
 		return sum;
 	}
-
 }

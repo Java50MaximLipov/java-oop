@@ -17,7 +17,6 @@ public class Arrays {
 		System.arraycopy(array, index, res, index + 1, array.length - index);
 		res[index] = obj;
 		return res;
-
 	}
 
 	public static <T> void bubbleSort(T[] array, Comparator<T> comp) {
