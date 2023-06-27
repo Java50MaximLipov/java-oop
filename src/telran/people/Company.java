@@ -22,8 +22,11 @@ public class Company {
 		return res;
 	}
 
-	public Employee[] getEmployeesBySalary(int salaryFrom, int salaryTo) {
-		Employee[] res = getEmployeesByPredicate(new SalaryPredicate(salaryFrom, salaryTo));
+	public Employee[] getEmployeesBySalary(int salaryFrom, final int salaryTo) {
+		Employee[] res = getEmployeesByPredicate(e -> {
+			int salary = e.getSalary();
+			return salary >= salaryFrom && salary <= salaryTo;
+		});
 		Arrays.sort(res, new SalaryComparator());
 		return res;
 	}
