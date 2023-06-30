@@ -19,6 +19,7 @@ class ShapesTest {
 
 	@BeforeEach
 	void setUp() {
+
 		canvas012 = new Canvas();
 		fillCanvas(canvas012, 0, 3);
 		canvas345 = new Canvas();
@@ -73,9 +74,10 @@ class ShapesTest {
 
 	@Test
 	void removeIfTest() {
-		canvas012.removeIf(s -> s instanceof Square);
+		assertTrue(canvas012.removeIf(s -> s instanceof Square));
 		assertEquals(64, canvas012.perimeter());
 		assertEquals(141, canvas012.square());
+		assertFalse(canvas012.removeIf(s -> s instanceof Square));
 	}
 
 	@Test
@@ -98,6 +100,12 @@ class ShapesTest {
 		assertThrowsExactly(NoSuchElementException.class, () -> it.next());
 		it.remove();
 		assertThrowsExactly(IllegalStateException.class, () -> it.remove());
+	}
+
+	@Test
+	void removeIfAllTest() {
+		assertTrue(canvas012_345_67.removeIf(s -> true));
+		assertEquals(0, canvas012_345_67.perimeter());
 	}
 
 }
